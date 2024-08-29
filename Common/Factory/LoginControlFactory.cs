@@ -14,8 +14,8 @@ namespace Common.ControlFactory
 
             controlMapping = new Dictionary<LoginErrorEnum, TextBox>
             {
-                { LoginErrorEnum.UserFieldEmpty, view.TxtUsername },
-                { LoginErrorEnum.UserNotFound, view.TxtUsername },
+                { LoginErrorEnum.UserFieldEmpty, view.TxtUserLogin },
+                { LoginErrorEnum.UserNotFound, view.TxtUserLogin },
                 { LoginErrorEnum.PasswordFieldEmpty, view.TxtPassword },
                 { LoginErrorEnum.WrongPassword, view.TxtPassword }
             };

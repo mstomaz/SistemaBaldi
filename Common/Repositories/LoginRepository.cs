@@ -1,8 +1,8 @@
 ﻿using Common.Model;
-using System.Data;
-using Microsoft.Data.SqlClient;
 using Common.Properties;
 using Common.Repositories.Enum;
+using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace Common.Repositories
 {

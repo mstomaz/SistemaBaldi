@@ -1,4 +1,7 @@
-﻿namespace Common.Views
+﻿using Common.Factory;
+using Common.Model.Enum;
+
+namespace Common.Views
 {
     public partial class RegisterView : Form, IRegisterView
     {
@@ -9,6 +12,8 @@
         {
             InitializeComponent();
             btnRegister.Click += (s, e) => { TryRegister?.Invoke(this, EventArgs.Empty); };
+            CboxDepartment.DataSource = DepartmentsFactory.GetDepartmentValues();
+            chkShowPassword.Click += PasswordVisibility;
         }
 
         public string UserLogin
@@ -21,15 +26,19 @@
             get { return txtPassword.Text; }
             set { txtPassword.Text = value; }
         }
+        public string PasswordConfirmation
+        {
+            get { return txtConfirmPassword.Text; }
+            set { txtConfirmPassword.Text = value; }
+        }
         public string UserName
         {
             get { return txtUserName.Text; }
             set { txtUserName.Text = value; }
         }
-        public int DepartmentIndex
+        public UserDepartmentEnum? DepartmentCode
         {
-            get { return cmbDepartment.SelectedIndex; }
-            set { cmbDepartment.SelectedIndex = value; }
+            get { return DepartmentsFactory.GetDepartmentKey(cmbDepartment.Text); }
         }
         public string Message
         {
@@ -51,14 +60,53 @@
             get { return txtPassword; }
             set { txtPassword = value; }
         }
+        public TextBox TxtConfirmPassword
+        {
+            get { return txtConfirmPassword; }
+            set { txtConfirmPassword = value; }
+        }
         public TextBox TxtUserName
         {
             get { return txtUserName; }
             set { txtUserName = value; }
         }
+        public ComboBox CboxDepartment
+        {
+            get { return cmbDepartment; }
+            set { cmbDepartment = value; }
+        }
+        public ErrorProvider ErrorProvider
+        {
+            get { return RegisterErrorProvider; }
+            set { RegisterErrorProvider = value; }
+        }
 
         public event EventHandler? TryRegister;
 
+        private void PasswordVisibility(object sender, EventArgs e)
+        {
+            if (!chkShowPassword.Checked)
+            {
+                txtPassword.PasswordChar = '*';
+                txtConfirmPassword.PasswordChar = '*';
+                return;
+            }
+            txtPassword.PasswordChar = '\0';
+            txtConfirmPassword.PasswordChar = '\0';
+        }
+
+        public void ShowMsgBoxError(string errorMessage, string titleMessage, 
+            MessageBoxButtons msgBoxButtons = MessageBoxButtons.OK, MessageBoxIcon msgBoxIcon = MessageBoxIcon.Error)
+        {
+            MessageBox.Show(errorMessage, titleMessage, msgBoxButtons, msgBoxIcon);
+        }
+        public void ClearFields()
+        {
+            UserLogin = string.Empty;
+            Password = string.Empty;
+            PasswordConfirmation = string.Empty;
+            UserName = string.Empty;
+        }
 
         private static RegisterView? instance;
 

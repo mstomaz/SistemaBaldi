@@ -7,13 +7,13 @@
         string Password {  get; set; }
         string Message {  get; set; }
         bool IsSuccessful { get; set; }
-        TextBox TxtUsername { get; set; }
+        TextBox TxtUserLogin { get; set; }
         TextBox TxtPassword { get; set; }
         ErrorProvider ErrorProvider { get; set; }
 
         event EventHandler? TryLogin;
 
-        void SetError(Control control, string? errorMessage);
+        void ClearFields();
         void Show();
     }
 }

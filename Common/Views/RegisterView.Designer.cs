@@ -30,8 +30,8 @@
         {
             components = new System.ComponentModel.Container();
             panel1 = new Panel();
-            label1 = new Label();
-            lblSenha = new Label();
+            txtLogin = new Label();
+            lblPassword = new Label();
             lblConfirmPassword = new Label();
             lblDepartment = new Label();
             txtUserLogin = new TextBox();
@@ -43,6 +43,7 @@
             lblUserName = new Label();
             btnRegister = new Button();
             RegisterErrorProvider = new ErrorProvider(components);
+            chkShowPassword = new CheckBox();
             ((System.ComponentModel.ISupportInitialize)RegisterErrorProvider).BeginInit();
             SuspendLayout();
             // 
@@ -56,27 +57,27 @@
             panel1.Size = new Size(801, 51);
             panel1.TabIndex = 0;
             // 
-            // label1
+            // txtLogin
             // 
-            label1.Anchor = AnchorStyles.Top;
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 11F);
-            label1.Location = new Point(219, 138);
-            label1.Name = "label1";
-            label1.Size = new Size(126, 20);
-            label1.TabIndex = 0;
-            label1.Text = "Nome de usuário:";
+            txtLogin.Anchor = AnchorStyles.Top;
+            txtLogin.AutoSize = true;
+            txtLogin.Font = new Font("Segoe UI", 11F);
+            txtLogin.Location = new Point(292, 138);
+            txtLogin.Name = "txtLogin";
+            txtLogin.Size = new Size(49, 20);
+            txtLogin.TabIndex = 0;
+            txtLogin.Text = "Login:";
             // 
-            // lblSenha
+            // lblPassword
             // 
-            lblSenha.Anchor = AnchorStyles.Top;
-            lblSenha.AutoSize = true;
-            lblSenha.Font = new Font("Segoe UI", 11F);
-            lblSenha.Location = new Point(293, 188);
-            lblSenha.Name = "lblSenha";
-            lblSenha.Size = new Size(52, 20);
-            lblSenha.TabIndex = 1;
-            lblSenha.Text = "Senha:";
+            lblPassword.Anchor = AnchorStyles.Top;
+            lblPassword.AutoSize = true;
+            lblPassword.Font = new Font("Segoe UI", 11F);
+            lblPassword.Location = new Point(293, 188);
+            lblPassword.Name = "lblPassword";
+            lblPassword.Size = new Size(52, 20);
+            lblPassword.TabIndex = 1;
+            lblPassword.Text = "Senha:";
             // 
             // lblConfirmPassword
             // 
@@ -94,7 +95,7 @@
             lblDepartment.Anchor = AnchorStyles.Top;
             lblDepartment.AutoSize = true;
             lblDepartment.Font = new Font("Segoe UI", 11F);
-            lblDepartment.Location = new Point(298, 338);
+            lblDepartment.Location = new Point(298, 353);
             lblDepartment.Name = "lblDepartment";
             lblDepartment.Size = new Size(47, 20);
             lblDepartment.TabIndex = 3;
@@ -123,6 +124,7 @@
             txtConfirmPassword.Anchor = AnchorStyles.Top;
             txtConfirmPassword.Location = new Point(368, 239);
             txtConfirmPassword.Name = "txtConfirmPassword";
+            txtConfirmPassword.PasswordChar = '*';
             txtConfirmPassword.Size = new Size(210, 23);
             txtConfirmPassword.TabIndex = 2;
             // 
@@ -130,10 +132,11 @@
             // 
             cmbDepartment.Anchor = AnchorStyles.Top;
             cmbDepartment.FormattingEnabled = true;
-            cmbDepartment.Location = new Point(368, 335);
+            cmbDepartment.Location = new Point(368, 350);
             cmbDepartment.Name = "cmbDepartment";
             cmbDepartment.Size = new Size(210, 23);
-            cmbDepartment.TabIndex = 7;
+            cmbDepartment.Sorted = true;
+            cmbDepartment.TabIndex = 4;
             // 
             // lblCadastro
             // 
@@ -149,17 +152,17 @@
             // txtUserName
             // 
             txtUserName.Anchor = AnchorStyles.Top;
-            txtUserName.Location = new Point(368, 285);
+            txtUserName.Location = new Point(368, 300);
             txtUserName.Name = "txtUserName";
             txtUserName.Size = new Size(210, 23);
-            txtUserName.TabIndex = 9;
+            txtUserName.TabIndex = 3;
             // 
             // lblUserName
             // 
             lblUserName.Anchor = AnchorStyles.Top;
             lblUserName.AutoSize = true;
             lblUserName.Font = new Font("Segoe UI", 11F);
-            lblUserName.Location = new Point(219, 288);
+            lblUserName.Location = new Point(219, 303);
             lblUserName.Name = "lblUserName";
             lblUserName.Size = new Size(126, 20);
             lblUserName.TabIndex = 8;
@@ -170,10 +173,10 @@
             btnRegister.Anchor = AnchorStyles.Top;
             btnRegister.AutoSize = true;
             btnRegister.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRegister.Location = new Point(342, 395);
+            btnRegister.Location = new Point(342, 410);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(115, 39);
-            btnRegister.TabIndex = 10;
+            btnRegister.TabIndex = 5;
             btnRegister.Text = "Cadastrar";
             btnRegister.UseVisualStyleBackColor = true;
             // 
@@ -181,12 +184,24 @@
             // 
             RegisterErrorProvider.ContainerControl = this;
             // 
+            // chkShowPassword
+            // 
+            chkShowPassword.Anchor = AnchorStyles.Top;
+            chkShowPassword.AutoSize = true;
+            chkShowPassword.Location = new Point(368, 268);
+            chkShowPassword.Name = "chkShowPassword";
+            chkShowPassword.Size = new Size(101, 19);
+            chkShowPassword.TabIndex = 9;
+            chkShowPassword.Text = "Mostrar senha";
+            chkShowPassword.UseVisualStyleBackColor = true;
+            // 
             // RegisterView
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
             ClientSize = new Size(801, 485);
+            Controls.Add(chkShowPassword);
             Controls.Add(btnRegister);
             Controls.Add(txtUserName);
             Controls.Add(lblUserName);
@@ -197,8 +212,8 @@
             Controls.Add(txtUserLogin);
             Controls.Add(lblDepartment);
             Controls.Add(lblConfirmPassword);
-            Controls.Add(lblSenha);
-            Controls.Add(label1);
+            Controls.Add(lblPassword);
+            Controls.Add(txtLogin);
             Controls.Add(panel1);
             Name = "RegisterView";
             Text = "Cadastro";
@@ -210,8 +225,8 @@
         #endregion
 
         private Panel panel1;
-        private Label label1;
-        private Label lblSenha;
+        private Label txtLogin;
+        private Label lblPassword;
         private Label lblConfirmPassword;
         private Label lblDepartment;
         private TextBox txtUserLogin;
@@ -223,5 +238,6 @@
         private Label lblUserName;
         private Button btnRegister;
         private ErrorProvider RegisterErrorProvider;
+        private CheckBox chkShowPassword;
     }
 }

@@ -16,7 +16,7 @@
         private void ViewEvents()
         {
             btnLogin.Click += (s, e) => { TryLogin?.Invoke(this, EventArgs.Empty); };
-            chkShowPassword.Click += ShowPassword;
+            chkShowPassword.Click += PasswordVisibility;
         }
 
         public string UserLogin 
@@ -39,7 +39,7 @@
             get { return _isSuccessful; }
             set { _isSuccessful = value; }
         }
-        public TextBox TxtUsername
+        public TextBox TxtUserLogin
         {   
             get { return frmTxtUsername; }
             set { frmTxtUsername = value; }
@@ -57,17 +57,17 @@
 
         public event EventHandler? TryLogin;
 
-        public void SetError(Control control, string? errorMessage)
-        {
-            ErrorProvider.SetError(control, errorMessage);
-        }
-
-        private void ShowPassword(object sender, EventArgs args)
+        private void PasswordVisibility(object sender, EventArgs e)
         {
             if (chkShowPassword.Checked)
                 frmTxtPassword.PasswordChar = '\0';
             else
                 frmTxtPassword.PasswordChar = '*';
+        }
+        public void ClearFields()
+        {
+            UserLogin = string.Empty;
+            Password = string.Empty;
         }
 
         private static LoginView? instance;

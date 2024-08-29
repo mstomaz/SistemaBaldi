@@ -3,7 +3,7 @@ using Common.Views;
 
 namespace Common.Validation
 {
-    public class PasswordFieldEmptyValidationRule : ILoginValidationRule
+    public class LoginPasswordEmptyRule : ILoginValidationRule
     {
         public (bool isValid, LoginErrorEnum errorCode, string? message) Validate(ILoginView view)
         {

@@ -1,5 +1,4 @@
 ﻿using Common.Model;
-using Common.Model.Enum;
 
 namespace Common.Repositories
 {

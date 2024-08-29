@@ -1,7 +1,6 @@
 ﻿using Common.Model;
-using Common.Model.Enum;
-using System.Data;
 using Microsoft.Data.SqlClient;
+using System.Data;
 
 namespace Common.Repositories
 {
@@ -21,13 +20,17 @@ namespace Common.Repositories
             using (command)
             {
                 command.Connection = connection;
+                command.Connection = connection;
                 command.CommandType = CommandType.StoredProcedure;
 
-                command.Parameters.Add(new SqlParameter("@login", SqlDbType.NVarChar).Value = user.UserLogin);
-                command.Parameters.Add(new SqlParameter("@password", SqlDbType.NVarChar).Value = user.Password);
-                command.Parameters.Add(new SqlParameter("@userName", SqlDbType.NVarChar).Value = user.UserName);
-                command.Parameters.Add(new SqlParameter("@department", SqlDbType.Int).Value = (int)user.UserDepartment);
-                command.Parameters.Add(new SqlParameter("isAdmin", SqlDbType.Bit).Value = 0);
+                command.Parameters.Add(new SqlParameter("@login", SqlDbType.NVarChar)).Value = user.UserLogin;
+                command.Parameters.Add(new SqlParameter("@password", SqlDbType.NVarChar)).Value = user.Password;
+                command.Parameters.Add(new SqlParameter("@userName", SqlDbType.NVarChar)).Value = user.UserName;
+                command.Parameters.Add(new SqlParameter("@department", SqlDbType.Int)).Value = (int)user.UserDepartment;
+                command.Parameters.Add(new SqlParameter("isAdmin", SqlDbType.Bit)).Value = 0;
+
+                connection.Open();
+
 
                 command.ExecuteNonQuery();
             }

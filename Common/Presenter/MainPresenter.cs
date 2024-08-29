@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Common.ControlFactory;
+﻿using Common.ControlFactory;
+using Common.Factory;
 using Common.Repositories;
 using Common.Validation;
 using Common.Views;
@@ -14,6 +10,8 @@ namespace Common.Presenter
     {
         private IMainView mainView;
         private string connectionString;
+        private RegisterPresenter _registerInstance;
+        private LoginPresenter _loginInstance;
 
         public MainPresenter(IMainView mainView, string connectionString)
         {
@@ -26,11 +24,12 @@ namespace Common.Presenter
         private void ShowLoginForm(object sender, EventArgs args)
         {
             ILoginView view = LoginView.GetInstance((MainView)mainView);
+            view.ClearFields();
             ILoginRepository repository = new LoginRepository(connectionString);
             IEnumerable<ILoginValidationRule> loginValidationRules =
             [
                 new LoginFieldEmptyValidationRule(),
-                new PasswordFieldEmptyValidationRule()
+                new LoginPasswordEmptyRule()
             ];
             IControlFactory controlFactory = new LoginControlFactory(view);
             new LoginPresenter(view, repository, loginValidationRules, controlFactory);
@@ -39,8 +38,14 @@ namespace Common.Presenter
         private void ShowRegisterForm(object sender, EventArgs args)
         {
             IRegisterView view = RegisterView.GetInstance((MainView)mainView);
-            IRegisterRepository repository = new RegisterRepository(connectionString);
-            new RegisterPresenter(view, repository);
+            view.ClearFields();
+            if (_registerInstance == null)
+            {
+                IRegisterRepository repository = new RegisterRepository(connectionString);
+                var factory = new RegisterControlFactory(view);
+                _registerInstance = new RegisterPresenter(view, repository, factory);
+            }
+
         }
     }
 }

@@ -4,6 +4,7 @@ using Common.Repositories;
 using Common.Repositories.Enum;
 using Common.Validation;
 using Common.Views;
+using Common.Views.Model;
 
 namespace Common.Presenter
 {
@@ -39,10 +40,16 @@ namespace Common.Presenter
                 return;
             }
 
-            var model = new UserModel()
+            var viewModel = new UserViewModel()
             {
                 UserLogin = view.UserLogin,
                 Password = view.Password
+            };
+
+            var model = new UserModel()
+            {
+                UserLogin = viewModel.UserLogin,
+                Password = viewModel.Password
             };
 
             (view.IsSuccessful, errorCode, view.Message) = repository.TryLogin(model);
@@ -52,7 +59,6 @@ namespace Common.Presenter
                 HandleLoginError(errorCode, view.Message);
                 return;
             }
-            MessageBox.Show("Logged in");
         }
 
         private (bool isValid, List<(LoginErrorEnum errorCode, string message)> errors) ValidateEmptyFields()
@@ -76,7 +82,7 @@ namespace Common.Presenter
             foreach (var (errorCode, message) in errors)
             {
                 var control = controlFactory.GetControl(errorCode);
-                view.SetError(control, message);
+                view.ErrorProvider.SetError(control, message);
             }
         }
 
@@ -89,7 +95,7 @@ namespace Common.Presenter
         private void CallErrorProvider(LoginErrorEnum errorCode, string? errorMessage)
         {
             var control = controlFactory.GetControl(errorCode);
-            view.SetError(control, errorMessage);
+            view.ErrorProvider.SetError(control, errorMessage);
         }
 
         private void ClearPasswordField()
