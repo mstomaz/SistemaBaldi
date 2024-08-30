@@ -28,22 +28,14 @@ namespace Common.Presenter
         {
             view.ErrorProvider.Clear();
 
-            var viewModel = new UserViewModel();
-            try
+            var viewModel = new UserViewModel()
             {
-                viewModel = new()
-                {
-                    UserLogin = view.UserLogin,
-                    Password = view.Password,
-                    UserName = view.UserName,
-                    ConfirmPassword = view.PasswordConfirmation,
-                    UserDepartment = view.DepartmentCode
-                };
-            }
-            catch (System.Runtime.CompilerServices.SwitchExpressionException)
-            {
-                viewModel.UserDepartment = null;
-            }
+                UserLogin = view.UserLogin,
+                Password = view.Password,
+                UserName = view.UserName,
+                ConfirmPassword = view.PasswordConfirmation,
+                UserDepartment = view.DepartmentCode
+            };
 
             (view.IsSuccessful, Dictionary<string, string> errors) = ModelDataValidation.Validate(viewModel);
             if (!view.IsSuccessful)
@@ -57,7 +49,7 @@ namespace Common.Presenter
                 UserLogin = view.UserLogin,
                 Password = view.Password,
                 UserName = view.UserName,
-                UserDepartment = view.DepartmentCode
+                UserDepartment = viewModel.UserDepartment
             };
 
             try
@@ -70,7 +62,7 @@ namespace Common.Presenter
             {
                 if (SqlServerExceptionValidation.IsUniqueKeyException(ex.Number))
                 {
-                    view.ShowMsgBoxError($"O nome de usuário '{user.UserLogin}' já está em uso.", 
+                    view.ShowMsgBoxError($"O nome de usuário '{user.UserLogin}' já está em uso.",
                         "Nome de usuário já em uso");
                     view.UserLogin = string.Empty;
                 }

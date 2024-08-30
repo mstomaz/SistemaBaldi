@@ -54,7 +54,7 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(801, 51);
+            panel1.Size = new Size(881, 51);
             panel1.TabIndex = 0;
             // 
             // txtLogin
@@ -62,7 +62,7 @@
             txtLogin.Anchor = AnchorStyles.Top;
             txtLogin.AutoSize = true;
             txtLogin.Font = new Font("Segoe UI", 11F);
-            txtLogin.Location = new Point(292, 138);
+            txtLogin.Location = new Point(332, 138);
             txtLogin.Name = "txtLogin";
             txtLogin.Size = new Size(49, 20);
             txtLogin.TabIndex = 0;
@@ -73,7 +73,7 @@
             lblPassword.Anchor = AnchorStyles.Top;
             lblPassword.AutoSize = true;
             lblPassword.Font = new Font("Segoe UI", 11F);
-            lblPassword.Location = new Point(293, 188);
+            lblPassword.Location = new Point(333, 188);
             lblPassword.Name = "lblPassword";
             lblPassword.Size = new Size(52, 20);
             lblPassword.TabIndex = 1;
@@ -84,7 +84,7 @@
             lblConfirmPassword.Anchor = AnchorStyles.Top;
             lblConfirmPassword.AutoSize = true;
             lblConfirmPassword.Font = new Font("Segoe UI", 11F);
-            lblConfirmPassword.Location = new Point(219, 238);
+            lblConfirmPassword.Location = new Point(259, 238);
             lblConfirmPassword.Name = "lblConfirmPassword";
             lblConfirmPassword.Size = new Size(122, 20);
             lblConfirmPassword.TabIndex = 2;
@@ -95,7 +95,7 @@
             lblDepartment.Anchor = AnchorStyles.Top;
             lblDepartment.AutoSize = true;
             lblDepartment.Font = new Font("Segoe UI", 11F);
-            lblDepartment.Location = new Point(298, 353);
+            lblDepartment.Location = new Point(338, 353);
             lblDepartment.Name = "lblDepartment";
             lblDepartment.Size = new Size(47, 20);
             lblDepartment.TabIndex = 3;
@@ -105,7 +105,7 @@
             // 
             txtUserLogin.Anchor = AnchorStyles.Top;
             txtUserLogin.BackColor = SystemColors.Window;
-            txtUserLogin.Location = new Point(368, 135);
+            txtUserLogin.Location = new Point(408, 135);
             txtUserLogin.Name = "txtUserLogin";
             txtUserLogin.Size = new Size(210, 23);
             txtUserLogin.TabIndex = 0;
@@ -113,7 +113,7 @@
             // txtPassword
             // 
             txtPassword.Anchor = AnchorStyles.Top;
-            txtPassword.Location = new Point(368, 185);
+            txtPassword.Location = new Point(408, 185);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
             txtPassword.Size = new Size(210, 23);
@@ -122,7 +122,7 @@
             // txtConfirmPassword
             // 
             txtConfirmPassword.Anchor = AnchorStyles.Top;
-            txtConfirmPassword.Location = new Point(368, 239);
+            txtConfirmPassword.Location = new Point(408, 239);
             txtConfirmPassword.Name = "txtConfirmPassword";
             txtConfirmPassword.PasswordChar = '*';
             txtConfirmPassword.Size = new Size(210, 23);
@@ -132,18 +132,20 @@
             // 
             cmbDepartment.Anchor = AnchorStyles.Top;
             cmbDepartment.FormattingEnabled = true;
-            cmbDepartment.Location = new Point(368, 350);
+            cmbDepartment.Location = new Point(408, 350);
             cmbDepartment.Name = "cmbDepartment";
             cmbDepartment.Size = new Size(210, 23);
             cmbDepartment.Sorted = true;
             cmbDepartment.TabIndex = 4;
+            cmbDepartment.KeyDown += cmbDepartment_KeyDown;
+            cmbDepartment.KeyPress += cmbDepartment_KeyPress;
             // 
             // lblCadastro
             // 
             lblCadastro.Anchor = AnchorStyles.Top;
             lblCadastro.AutoSize = true;
             lblCadastro.Font = new Font("Segoe UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblCadastro.Location = new Point(342, 65);
+            lblCadastro.Location = new Point(382, 65);
             lblCadastro.Name = "lblCadastro";
             lblCadastro.Size = new Size(115, 32);
             lblCadastro.TabIndex = 0;
@@ -152,7 +154,7 @@
             // txtUserName
             // 
             txtUserName.Anchor = AnchorStyles.Top;
-            txtUserName.Location = new Point(368, 300);
+            txtUserName.Location = new Point(408, 300);
             txtUserName.Name = "txtUserName";
             txtUserName.Size = new Size(210, 23);
             txtUserName.TabIndex = 3;
@@ -162,7 +164,7 @@
             lblUserName.Anchor = AnchorStyles.Top;
             lblUserName.AutoSize = true;
             lblUserName.Font = new Font("Segoe UI", 11F);
-            lblUserName.Location = new Point(219, 303);
+            lblUserName.Location = new Point(259, 303);
             lblUserName.Name = "lblUserName";
             lblUserName.Size = new Size(126, 20);
             lblUserName.TabIndex = 8;
@@ -173,7 +175,7 @@
             btnRegister.Anchor = AnchorStyles.Top;
             btnRegister.AutoSize = true;
             btnRegister.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnRegister.Location = new Point(342, 410);
+            btnRegister.Location = new Point(382, 410);
             btnRegister.Name = "btnRegister";
             btnRegister.Size = new Size(115, 39);
             btnRegister.TabIndex = 5;
@@ -188,7 +190,7 @@
             // 
             chkShowPassword.Anchor = AnchorStyles.Top;
             chkShowPassword.AutoSize = true;
-            chkShowPassword.Location = new Point(368, 268);
+            chkShowPassword.Location = new Point(408, 268);
             chkShowPassword.Name = "chkShowPassword";
             chkShowPassword.Size = new Size(101, 19);
             chkShowPassword.TabIndex = 9;
@@ -200,7 +202,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.Control;
-            ClientSize = new Size(801, 485);
+            ClientSize = new Size(881, 636);
             Controls.Add(chkShowPassword);
             Controls.Add(btnRegister);
             Controls.Add(txtUserName);

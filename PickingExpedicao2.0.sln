@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Picking", "Picking\Picking.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedResources", "SharedResources\SharedResources.csproj", "{A3ED62BA-98EC-4A1E-A8AE-C099E63E8937}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainMenu", "MainMenu\MainMenu.csproj", "{488C851D-B8A1-4E6A-BAF7-91DF727AE0DE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A3ED62BA-98EC-4A1E-A8AE-C099E63E8937}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3ED62BA-98EC-4A1E-A8AE-C099E63E8937}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A3ED62BA-98EC-4A1E-A8AE-C099E63E8937}.Release|Any CPU.Build.0 = Release|Any CPU
+		{488C851D-B8A1-4E6A-BAF7-91DF727AE0DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{488C851D-B8A1-4E6A-BAF7-91DF727AE0DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{488C851D-B8A1-4E6A-BAF7-91DF727AE0DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{488C851D-B8A1-4E6A-BAF7-91DF727AE0DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

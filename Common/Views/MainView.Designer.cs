@@ -59,7 +59,7 @@
             titleLogoPanel.Location = new Point(0, 0);
             titleLogoPanel.Margin = new Padding(0, 0, 0, 3);
             titleLogoPanel.Name = "titleLogoPanel";
-            titleLogoPanel.Size = new Size(978, 100);
+            titleLogoPanel.Size = new Size(1032, 100);
             titleLogoPanel.TabIndex = 1;
             titleLogoPanel.TabStop = true;
             // 
@@ -98,7 +98,7 @@
             lblBaldi.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             lblBaldi.AutoSize = true;
             lblBaldi.BackColor = Color.Transparent;
-            lblBaldi.Location = new Point(25, 408);
+            lblBaldi.Location = new Point(25, 539);
             lblBaldi.Name = "lblBaldi";
             lblBaldi.Size = new Size(73, 15);
             lblBaldi.TabIndex = 2;
@@ -113,10 +113,10 @@
             menusPanel.Controls.Add(btnLogin);
             menusPanel.Controls.Add(lblBaldi);
             menusPanel.Controls.Add(btnRegister);
-            menusPanel.Location = new Point(859, 100);
+            menusPanel.Location = new Point(913, 100);
             menusPanel.Margin = new Padding(0);
             menusPanel.Name = "menusPanel";
-            menusPanel.Size = new Size(978, 433);
+            menusPanel.Size = new Size(978, 564);
             menusPanel.TabIndex = 4;
             // 
             // MainView
@@ -124,7 +124,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
-            ClientSize = new Size(978, 533);
+            ClientSize = new Size(1032, 664);
             Controls.Add(menusPanel);
             Controls.Add(titleLogoPanel);
             IsMdiContainer = true;

@@ -6,9 +6,10 @@ namespace Common.Views.Model
 {
     public class UserViewModel
     {
+        [Key]
         [Required(ErrorMessage = "O campo 'Login' é obrigatório")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "O campo 'Login' deve ter entre 3 e 50 caracteres")]
-        [RegularExpression(@"^[\d\w]*$", ErrorMessage = "Use somente dígitos alfanuméricos")]
+        [RegularExpression(@"^([a-zA-z])([\w])*$", ErrorMessage = "Use somente letras ou números, começando com uma letra")]
         [ControlMapping("TxtUserLogin")]
         public string? UserLogin { get; set; }
 
@@ -26,6 +27,7 @@ namespace Common.Views.Model
 
         [Required(ErrorMessage = "O campo 'Nome' é obrigatório")]
         [StringLength(200, MinimumLength = 3, ErrorMessage = "O campo 'Nome' deve ter entre 3 e 100 caracteres")]
+        [RegularExpression(@"^([a-zA-z])([a-zA-z]|\s)*$", ErrorMessage = "Use somente letras e espaços, começando com uma letra")]
         [ControlMapping("TxtUserName")]
         public string? UserName { get; set; }
 

@@ -95,7 +95,7 @@ namespace Common.Views
             txtConfirmPassword.PasswordChar = '\0';
         }
 
-        public void ShowMsgBoxError(string errorMessage, string titleMessage, 
+        public void ShowMsgBoxError(string errorMessage, string titleMessage,
             MessageBoxButtons msgBoxButtons = MessageBoxButtons.OK, MessageBoxIcon msgBoxIcon = MessageBoxIcon.Error)
         {
             MessageBox.Show(errorMessage, titleMessage, msgBoxButtons, msgBoxIcon);
@@ -106,6 +106,15 @@ namespace Common.Views
             Password = string.Empty;
             PasswordConfirmation = string.Empty;
             UserName = string.Empty;
+        }
+
+        private void cmbDepartment_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.Handled = true;
+        }
+        private void cmbDepartment_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
 
         private static RegisterView? instance;
