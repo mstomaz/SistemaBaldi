@@ -1,4 +1,6 @@
-﻿namespace Common.Views
+﻿using SharedResourcesLibrary;
+
+namespace Common.Views
 {
     public partial class LoginView : Form, ILoginView
     {
@@ -9,7 +11,7 @@
         public LoginView()
         {
             InitializeComponent();
-            picBoxSilhouette.Image = SharedResources.Resources.user_silhouette;
+            picBoxSilhouette.Image = Resources.user_silhouette;
             ViewEvents();
         }
 

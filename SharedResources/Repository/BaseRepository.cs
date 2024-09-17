@@ -1,6 +1,6 @@
 ﻿using Microsoft.Data.SqlClient;
 
-namespace Common.Repositories
+namespace SharedResourcesLibrary.Repositories
 {
     public class BaseRepository : IBaseRepository
     {

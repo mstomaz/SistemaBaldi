@@ -1,4 +1,6 @@
-﻿namespace Common.Views
+﻿using SharedResourcesLibrary;
+
+namespace Common.Views
 {
     public partial class MainView : Form, IMainView
     {
@@ -6,7 +8,7 @@
         public MainView()
         {
             InitializeComponent();
-            picBoxBaldi.Image = SharedResources.Resources.logo_baldi;
+            picBoxBaldi.Image = Resources.logo_baldi;
             btnLogin.Click += (s, e) => { ShowLoginForm?.Invoke(this, EventArgs.Empty); };
             btnRegister.Click += (s, e) => { ShowRegisterForm?.Invoke(this, EventArgs.Empty); };
         }

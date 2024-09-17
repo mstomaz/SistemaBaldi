@@ -1,6 +1,7 @@
 ﻿using Common.Model;
 using Microsoft.Data.SqlClient;
 using System.Data;
+using SharedResourcesLibrary.Repositories;
 
 namespace Common.Repositories
 {

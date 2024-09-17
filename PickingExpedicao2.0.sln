@@ -7,9 +7,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Picking", "Picking\Picking.csproj", "{25B7A676-87F0-41DD-9E2D-AAA29DB50FD5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedResources", "SharedResources\SharedResources.csproj", "{A3ED62BA-98EC-4A1E-A8AE-C099E63E8937}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedResourcesLibrary", "SharedResources\SharedResourcesLibrary.csproj", "{A3ED62BA-98EC-4A1E-A8AE-C099E63E8937}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MainMenu", "MainMenu\MainMenu.csproj", "{488C851D-B8A1-4E6A-BAF7-91DF727AE0DE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MainMenu", "MainMenu\MainMenu.csproj", "{488C851D-B8A1-4E6A-BAF7-91DF727AE0DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,10 +1,10 @@
 ﻿using Common.Attributes;
-using Common.Model.Enum;
+using SharedResources.Enum;
 using System.ComponentModel.DataAnnotations;
 
-namespace Common.Views.Model
+namespace Common.Validation.Model
 {
-    public class UserViewModel
+    public class UserModelValidation
     {
         [Key]
         [Required(ErrorMessage = "O campo 'Login' é obrigatório")]

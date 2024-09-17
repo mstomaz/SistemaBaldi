@@ -1,6 +1,6 @@
 ﻿namespace MainMenu
 {
-    partial class MainMenu
+    partial class formMenu
     {
         /// <summary>
         ///  Required designer variable.
@@ -30,13 +30,12 @@
         {
             SuspendLayout();
             // 
-            // MainMenu
+            // formMenu
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Name = "MainMenu";
-            Text = "Form1";
+            Name = "formMenu";
             ResumeLayout(false);
         }
 

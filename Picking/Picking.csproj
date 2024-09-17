@@ -9,7 +9,7 @@
   </PropertyGroup>
 
 	<ItemGroup>
-		<ProjectReference Include="..\SharedResources\SharedResources.csproj" />
+		<ProjectReference Include="..\SharedResources\SharedResourcesLibrary.csproj" />
 	</ItemGroup>
 
 </Project>

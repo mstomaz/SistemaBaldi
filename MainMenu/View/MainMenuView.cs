@@ -1,8 +1,8 @@
 namespace MainMenu
 {
-    public partial class MainMenu : Form
+    public partial class formMenu : Form
     {
-        public MainMenu()
+        public formMenu()
         {
             InitializeComponent();
         }

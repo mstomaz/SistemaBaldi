@@ -1,4 +1,4 @@
-﻿namespace Common.Model.Enum
+﻿namespace SharedResources.Enum
 {
     public enum UserDepartmentEnum
     {

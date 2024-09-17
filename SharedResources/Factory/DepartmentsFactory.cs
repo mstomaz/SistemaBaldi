@@ -1,6 +1,6 @@
-﻿using Common.Model.Enum;
+﻿using SharedResources.Enum;
 
-namespace Common.Factory
+namespace SharedResources.Factory
 {
     public static class DepartmentsFactory
     {

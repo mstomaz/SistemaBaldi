@@ -1,5 +1,5 @@
-﻿using Common.Factory;
-using Common.Model.Enum;
+﻿using SharedResources.Factory;
+using SharedResources.Enum;
 
 namespace Common.Views
 {

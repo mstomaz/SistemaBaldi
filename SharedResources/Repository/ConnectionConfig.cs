@@ -1,6 +1,6 @@
 ﻿using System.Configuration;
 
-namespace Common.Repositories
+namespace SharedResourcesLibrary.Repositories
 {
     public class ConnectionConfig
     {

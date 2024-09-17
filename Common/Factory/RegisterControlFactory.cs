@@ -1,6 +1,6 @@
 ﻿using Common.Attributes;
+using Common.Validation.Model;
 using Common.Views;
-using Common.Views.Model;
 using System.Reflection;
 
 namespace Common.Factory
@@ -16,7 +16,7 @@ namespace Common.Factory
     
         public Control GetControl(string key)
         {
-            var property = typeof(UserViewModel).GetProperty(key);
+            var property = typeof(UserModelValidation).GetProperty(key);
             if (property != null)
             {
                 var attribute = property.GetCustomAttribute<ControlMappingAttribute>();

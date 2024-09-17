@@ -31,10 +31,10 @@ namespace Common.Presenter
                 IEnumerable<ILoginValidationRule> loginValidationRules =
                 [
                     new LoginFieldEmptyValidationRule(),
-                new LoginPasswordEmptyRule()
+                    new LoginPasswordEmptyRule()
                 ];
                 IControlFactory controlFactory = new LoginControlFactory(view);
-                _loginInstance = new LoginPresenter(view, repository, loginValidationRules, controlFactory);
+                _loginInstance = new LoginPresenter(view, repository, loginValidationRules, controlFactory, mainView);
             }
         }
 

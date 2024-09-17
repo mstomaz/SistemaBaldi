@@ -9,7 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SharedResources\SharedResources.csproj" />
+    <ProjectReference Include="..\MainMenu\MainMenu.csproj" />
+    <ProjectReference Include="..\SharedResources\SharedResourcesLibrary.csproj" />
   </ItemGroup>
 
   <ItemGroup>

@@ -4,7 +4,7 @@ using Common.Repositories;
 using Common.Repositories.Enum;
 using Common.Validation;
 using Common.Views;
-using Common.Views.Model;
+using Common.Validation.Model;
 
 namespace Common.Presenter
 {
@@ -14,19 +14,24 @@ namespace Common.Presenter
         private readonly ILoginRepository repository;
         private readonly IEnumerable<ILoginValidationRule> loginValidationRules;
         private readonly IControlFactory controlFactory;
+        private readonly IMainView mainView;
+
+        private event EventHandler LoginSucessful;
 
         public LoginPresenter(ILoginView view, ILoginRepository repository, IEnumerable<ILoginValidationRule> loginValidationRules,
-            IControlFactory controlFactory)
+            IControlFactory controlFactory, IMainView mainView)
         {
             this.view = view;
             this.repository = repository;
             this.loginValidationRules = loginValidationRules;
             this.controlFactory = controlFactory;
+            this.mainView = mainView;
             this.view.TryLogin += TryLogin;
+            LoginSucessful += OnLoginSucessful;
             this.view.Show();
         }
 
-        private void TryLogin(object sender, EventArgs e)
+        private void TryLogin(object? sender, EventArgs e)
         {
             view.ErrorProvider.Clear();
 
@@ -40,7 +45,7 @@ namespace Common.Presenter
                 return;
             }
 
-            var viewModel = new UserViewModel()
+            var viewModel = new UserModelValidation()
             {
                 UserLogin = view.UserLogin,
                 Password = view.Password
@@ -59,6 +64,8 @@ namespace Common.Presenter
                 HandleLoginError(errorCode, view.Message);
                 return;
             }
+
+            OnLoginSucessful(this, null);
         }
 
         private (bool isValid, List<(LoginErrorEnum errorCode, string message)> errors) ValidateEmptyFields()
@@ -101,6 +108,11 @@ namespace Common.Presenter
         private void ClearPasswordField()
         {
             view.Password = string.Empty;
+        }
+
+        private void OnLoginSucessful(object? sender, EventArgs e)
+        {
+            mainView.DialogResult = DialogResult.OK;
         }
     }
 }

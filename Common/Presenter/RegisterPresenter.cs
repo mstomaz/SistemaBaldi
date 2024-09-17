@@ -4,7 +4,7 @@ using Common.Presenter.Common;
 using Common.Repositories;
 using Common.Validation;
 using Common.Views;
-using Common.Views.Model;
+using Common.Validation.Model;
 using Microsoft.Data.SqlClient;
 
 namespace Common.Presenter
@@ -28,7 +28,7 @@ namespace Common.Presenter
         {
             view.ErrorProvider.Clear();
 
-            var viewModel = new UserViewModel()
+            var viewModel = new UserModelValidation()
             {
                 UserLogin = view.UserLogin,
                 Password = view.Password,

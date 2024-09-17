@@ -1,4 +1,4 @@
-﻿using Common.Model.Enum;
+﻿using SharedResources.Enum;
 
 namespace Common.Views
 {
