@@ -17,9 +17,9 @@ namespace Common.Repositories
 
         public (bool isValid, LoginErrorEnum errorCode, string? errorMessage) TryLogin(UserModel user)
         {
-            using var connection = SqlServerConnect(connectionString);
+            using var connection = new SqlConnection(connectionString);
             string storedProcedure = "ValidateUser";
-            var command = SqlServerGetCommand(storedProcedure, connection);
+            var command = new SqlCommand(storedProcedure, connection);
 
             using (command)
             {

@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharedResourcesLibrary", "S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MainMenu", "MainMenu\MainMenu.csproj", "{488C851D-B8A1-4E6A-BAF7-91DF727AE0DE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FinishControl", "FinishControl\FinishControl.csproj", "{CE667518-CF4C-493E-A059-25D6275BA98F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{488C851D-B8A1-4E6A-BAF7-91DF727AE0DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{488C851D-B8A1-4E6A-BAF7-91DF727AE0DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{488C851D-B8A1-4E6A-BAF7-91DF727AE0DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE667518-CF4C-493E-A059-25D6275BA98F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE667518-CF4C-493E-A059-25D6275BA98F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE667518-CF4C-493E-A059-25D6275BA98F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE667518-CF4C-493E-A059-25D6275BA98F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

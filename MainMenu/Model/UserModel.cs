@@ -1,4 +1,4 @@
-﻿using SharedResources.Enum;
+﻿using SharedResourcesLibrary.Enum;
 
 namespace MainMenu.Model
 {
@@ -6,7 +6,7 @@ namespace MainMenu.Model
     {
         public string? UserLogin { get; set; }
         public string? UserName { get; set; }
-        public UserDepartmentEnum? UserDepartment { get; set; }
+        public UserDepartmentEnum UserDepartment { get; set; }
         public bool IsAdmin { get; set; }
     }
 }

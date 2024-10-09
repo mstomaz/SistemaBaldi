@@ -1,5 +1,5 @@
-﻿using SharedResources.Factory;
-using SharedResources.Enum;
+﻿using SharedResourcesLibrary.Factory;
+using SharedResourcesLibrary.Enum;
 
 namespace Common.Views
 {
@@ -36,7 +36,7 @@ namespace Common.Views
             get { return txtUserName.Text; }
             set { txtUserName.Text = value; }
         }
-        public UserDepartmentEnum? DepartmentCode
+        public UserDepartmentEnum DepartmentCode
         {
             get { return DepartmentsFactory.GetDepartmentKey(cmbDepartment.Text); }
         }

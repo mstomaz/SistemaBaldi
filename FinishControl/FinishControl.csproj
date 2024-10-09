@@ -9,8 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FinishControl\FinishControl.csproj" />
-    <ProjectReference Include="..\Picking\Picking.csproj" />
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="5.2.2" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\SharedResources\SharedResourcesLibrary.csproj" />
   </ItemGroup>
 

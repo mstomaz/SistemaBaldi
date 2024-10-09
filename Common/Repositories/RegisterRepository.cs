@@ -14,9 +14,9 @@ namespace Common.Repositories
         }
         public void TryRegister(UserModel user)
         {
-            using var connection = SqlServerConnect(connectionString);
+            using var connection = new SqlConnection(connectionString);
             string storedProcedure = "CreateUser";
-            var command = SqlServerGetCommand(storedProcedure, connection);
+            var command = new SqlCommand(storedProcedure, connection);
 
             using (command)
             {

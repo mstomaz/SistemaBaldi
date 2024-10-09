@@ -1,6 +1,8 @@
 ﻿using Common.Presenter;
 using Common.Views;
 using MainMenu;
+using MainMenu.Presenter;
+using MainMenu.Views;
 
 namespace Common.Context
 {
@@ -16,9 +18,9 @@ namespace Common.Context
             if (lastTimeLogged.ToShortDateString() != DateTime.Now.ToShortDateString())
                 StartLoginMenu(new MainView());                
             else
-                {
+            {
 
-                }
+            }
         }
 
         private void StartLoginMenu(IMainView view)
@@ -28,15 +30,27 @@ namespace Common.Context
             view.Closing += OnFormClosing;
             view.ShowDialog();
             if (view.DialogResult == DialogResult.OK)
-                StartMainMenu();
+            {
+                StartMainMenu(new MainMenuView(new MainMenu.Model.UserModel()
+                {
+                    UserLogin = view.UserInfo.UserLogin,
+                    UserName = view.UserInfo.UserName,
+                    UserDepartment = view.UserInfo.UserDepartment
+                }));
+            }
         }
 
-        private void StartMainMenu()
+        private void StartMainMenu(IMainMenuView view)
         {
-            var mainMenu = new formMenu();
-            mainMenu.FormClosed += OnFormClosed;
-            mainMenu.FormClosing += OnFormClosing;
-            mainMenu.Show();
+            var mainMenuPresenter = new MainMenuPresenter(view, connectionString);
+            view.Closed += OnFormClosed;
+            view.Closing += OnFormClosing;
+            mainMenuPresenter.OnLogoutClicked += (s, e) =>
+            {
+                view.Close();
+                StartLoginMenu(new MainView());
+            };
+            view.Show();
         }
 
         private void OnApplicationExit(object? sender, EventArgs e)
@@ -49,10 +63,17 @@ namespace Common.Context
             {
                 Application.Exit();
             }
+            ((Form)sender).Dispose();
         }
 
         private void OnFormClosing(object? sender, EventArgs e)
         {
+        }
+
+        private void OnMouseClick(object? sender, EventArgs e)
+        {
+            
+                        
         }
     }
 }

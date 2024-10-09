@@ -1,12 +1,11 @@
 ﻿using Common.Attributes;
-using SharedResources.Enum;
+using SharedResourcesLibrary.Enum;
 using System.ComponentModel.DataAnnotations;
 
 namespace Common.Validation.Model
 {
     public class UserModelValidation
     {
-        [Key]
         [Required(ErrorMessage = "O campo 'Login' é obrigatório")]
         [StringLength(50, MinimumLength = 3, ErrorMessage = "O campo 'Login' deve ter entre 3 e 50 caracteres")]
         [RegularExpression(@"^([a-zA-z])([\w])*$", ErrorMessage = "Use somente letras ou números, começando com uma letra")]
@@ -33,7 +32,7 @@ namespace Common.Validation.Model
 
         [Required(ErrorMessage = "O campo 'Setor' é obrigatório")]
         [ControlMapping("CboxDepartment")]
-        public UserDepartmentEnum? UserDepartment { get; set; }
+        public UserDepartmentEnum UserDepartment { get; set; }
 
         public bool IsAdmin { get; set; }
     }

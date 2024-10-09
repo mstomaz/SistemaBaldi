@@ -1,4 +1,4 @@
-﻿using SharedResources.Enum;
+﻿using SharedResourcesLibrary.Enum;
 
 namespace Common.Views
 {
@@ -8,7 +8,7 @@ namespace Common.Views
         string Password { get; set; }
         string PasswordConfirmation { get; set; }
         string UserName { get; set; }
-        UserDepartmentEnum? DepartmentCode { get; }
+        UserDepartmentEnum DepartmentCode { get; }
         string Message { get; set; }
         bool IsSuccessful { get; set; }
         TextBox TxtUserLogin { get; set; }

@@ -21,24 +21,25 @@ namespace Common.Presenter
             this.mainView.ShowRegisterForm += ShowRegisterForm;
         }
 
-        private void ShowLoginForm(object sender, EventArgs args)
+        private void ShowLoginForm(object? sender, EventArgs args)
         {
             ILoginView view = LoginView.GetInstance((MainView)mainView);
             view.ClearFields();
             if (_loginInstance == null)
             {
                 ILoginRepository repository = new LoginRepository(connectionString);
+                var userInfoRepo = new UserInfoRepository(connectionString);
                 IEnumerable<ILoginValidationRule> loginValidationRules =
                 [
                     new LoginFieldEmptyValidationRule(),
                     new LoginPasswordEmptyRule()
                 ];
                 IControlFactory controlFactory = new LoginControlFactory(view);
-                _loginInstance = new LoginPresenter(view, repository, loginValidationRules, controlFactory, mainView);
+                _loginInstance = new LoginPresenter(view, repository, userInfoRepo, loginValidationRules, controlFactory, mainView);
             }
         }
 
-        private void ShowRegisterForm(object sender, EventArgs args)
+        private void ShowRegisterForm(object? sender, EventArgs args)
         {
             IRegisterView view = RegisterView.GetInstance((MainView)mainView);
             view.ClearFields();

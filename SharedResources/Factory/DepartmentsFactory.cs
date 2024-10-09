@@ -1,13 +1,13 @@
-﻿using SharedResources.Enum;
+﻿using SharedResourcesLibrary.Enum;
 
-namespace SharedResources.Factory
+namespace SharedResourcesLibrary.Factory
 {
     public static class DepartmentsFactory
     {
         public static Dictionary<UserDepartmentEnum, string> departmentMapping { get; } = new()
         {
             { UserDepartmentEnum.Expedition, "Expedição" },
-            { UserDepartmentEnum.ProdControl, "Controle de produção" }
+            { UserDepartmentEnum.ProdControl, "Controle de acabamento" }
         };
 
         public static string[] GetDepartmentValues()
@@ -26,7 +26,7 @@ namespace SharedResources.Factory
             return departmentName switch
             {
                 "Expedição" => UserDepartmentEnum.Expedition,
-                "Controle de produção" => UserDepartmentEnum.ProdControl,
+                "Controle de acabamento" => UserDepartmentEnum.ProdControl,
                 _ => throw new System.Runtime.CompilerServices.SwitchExpressionException()
             };
         }

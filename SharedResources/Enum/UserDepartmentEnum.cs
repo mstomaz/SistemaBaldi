@@ -1,4 +1,4 @@
-﻿namespace SharedResources.Enum
+﻿namespace SharedResourcesLibrary.Enum
 {
     public enum UserDepartmentEnum
     {

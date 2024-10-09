@@ -1,6 +1,6 @@
-﻿using MainMenu.Model;
+using FinishControl.Views;
 
-namespace MainMenu.Views
+namespace FinishControl
 {
     internal static class Program
     {
@@ -13,7 +13,7 @@ namespace MainMenu.Views
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new MainMenuView(new UserModel()));
+            Application.Run(new FinishControlMainView());
         }
     }
 }

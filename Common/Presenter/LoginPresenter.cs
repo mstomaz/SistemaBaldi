@@ -12,22 +12,22 @@ namespace Common.Presenter
     {
         private readonly ILoginView view;
         private readonly ILoginRepository repository;
+        private readonly UserInfoRepository userInfoRepo;
         private readonly IEnumerable<ILoginValidationRule> loginValidationRules;
         private readonly IControlFactory controlFactory;
         private readonly IMainView mainView;
 
-        private event EventHandler LoginSucessful;
-
-        public LoginPresenter(ILoginView view, ILoginRepository repository, IEnumerable<ILoginValidationRule> loginValidationRules,
+        public LoginPresenter(ILoginView view, ILoginRepository repository, UserInfoRepository userInfoRepo, IEnumerable<ILoginValidationRule> loginValidationRules,
             IControlFactory controlFactory, IMainView mainView)
         {
             this.view = view;
             this.repository = repository;
+            this.userInfoRepo = userInfoRepo;
             this.loginValidationRules = loginValidationRules;
             this.controlFactory = controlFactory;
             this.mainView = mainView;
             this.view.TryLogin += TryLogin;
-            LoginSucessful += OnLoginSucessful;
+            this.view.TryLogin += OnLoginSucessful;
             this.view.Show();
         }
 
@@ -64,8 +64,6 @@ namespace Common.Presenter
                 HandleLoginError(errorCode, view.Message);
                 return;
             }
-
-            OnLoginSucessful(this, null);
         }
 
         private (bool isValid, List<(LoginErrorEnum errorCode, string message)> errors) ValidateEmptyFields()
@@ -112,7 +110,11 @@ namespace Common.Presenter
 
         private void OnLoginSucessful(object? sender, EventArgs e)
         {
-            mainView.DialogResult = DialogResult.OK;
+            if (view.IsSuccessful)
+            {
+                mainView.DialogResult = DialogResult.OK;
+                mainView.UserInfo = userInfoRepo.GetUserInfo(view.UserLogin);
+            }
         }
     }
 }
